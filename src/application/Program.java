@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Program {
 
-	public static void notMain(String[] args) {
+	public static void read(String[] args) {
 		String path = "c:\\tmp\\in.txt";
 
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
@@ -25,7 +25,7 @@ public class Program {
 		} 
 	}
 	
-	public static void notMainToo(String[] args) {
+	public static void write(String[] args) {
 		String[] lines = new String[] {"Good Morning", "Good Afternoon", "Good Night"};
 		
 		String path = "c:\\tmp\\out.txt";
@@ -42,7 +42,7 @@ public class Program {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void manage(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Enter a folder path: ");
@@ -66,6 +66,21 @@ public class Program {
 		
 		boolean success = new File(strPath + "\\subdir").mkdir();
 		System.out.println("Directory created successfully: " + success);
+		
+		sc.close();
+	}
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter a file path: ");
+		String strPath = sc.nextLine();
+		
+		File path = new File(strPath);
+		
+		System.out.println("getName: " + path.getName());
+		System.out.println("getParent: " + path.getParent());
+		System.out.println("getPath: " + path.getPath());
 		
 		sc.close();
 	}
